@@ -1,0 +1,254 @@
+@import "functions", "colors", "fonts", "reset";
+
+.main {
+  font-size: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: color(nt-light-grayish-cayn);
+  background-image: url(../images/logo.svg);
+  background-repeat: no-repeat;
+  background-position: top 3rem center;
+  padding-top: 9rem;
+}
+
+.card {
+  max-width: 920px;
+  background-color: color(nt-white);
+  padding: 2rem;
+  border-radius: 20px 20px 0 0;
+}
+
+input[type="number"] {
+  font-family: "Space Mono", monospace;
+  font-size: $f-size-input;
+  font-weight: 700;
+  color: color(nt-very-dark-cyan);
+  height: 3rem;
+  width: 100%;
+  padding: 1rem;
+  line-height: 0;
+  text-align: right;
+  margin: 5px 0;
+  background-color: color(nt-light-grayish-cayn-lighter);
+  border: none;
+  border-radius: 3px;
+
+  &:focus {
+    outline: 2px solid color(pr-strong-cyan);
+  }
+}
+
+.bill,
+.people,
+.tips {
+  margin-bottom: 2rem;
+}
+
+.label__text {
+  color: color(nt-dark-grayish-cyan);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.bill {
+  input {
+    background-image: url(../images/icon-dollar.svg);
+    background-position: left 1rem center;
+    background-repeat: no-repeat;
+  }
+}
+
+.select-tip {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.tips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.tip {
+  width: 100%;
+  height: 3rem;
+  color: color(nt-white);
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="radio"] {
+    appearance: none;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tip__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: color(nt-very-dark-cyan);
+    width: 100%;
+    font-size: $f-size-input;
+    font-weight: 700;
+    border-radius: 5px;
+  }
+
+  input[type="radio"]:checked + .tip__text {
+    background: color(pr-strong-cyan);
+    color: color(nt-very-dark-cyan);
+  }
+
+  &:hover {
+    .tip__text {
+      background: lighten(color(pr-strong-cyan), 40%);
+      color: color(nt-very-dark-cyan);
+    }
+  }
+
+  .custom {
+    &::placeholder {
+      font-size: $f-size-input;
+      font-weight: 700;
+    }
+  }
+}
+
+.people {
+  input {
+    background-image: url(../images/icon-person.svg);
+    background-position: left 1rem center;
+    background-repeat: no-repeat;
+  }
+}
+
+.number-people {
+  #people__error {
+    float: right;
+    display: none;
+    color: red;
+    font-weight: 400;
+  }
+}
+
+.card__output {
+  background-color: color(nt-very-dark-cyan);
+  padding: 1.5rem;
+  padding-top: 2rem;
+  border-radius: 15px;
+  margin-inline: -0.5rem;
+  overflow: none;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .result__value {
+    font-size: $f-size-input;
+    font-weight: 700;
+    color: color(pr-strong-cyan);
+
+    span {
+      font-size: $f-size-result;
+    }
+  }
+}
+
+.result__text {
+  color: color(nt-white);
+  font-weight: 700;
+
+  .result__text__per {
+    color: color(nt-dark-grayish-cyan-lighter);
+    font-size: 13px;
+  }
+}
+
+.reset {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  font-size: $f-size-button;
+  font-weight: 700;
+  background-color: color(pr-strong-cyan);
+  color: color(nt-very-dark-cyan);
+  border: none;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background-color: lighten(color(pr-strong-cyan), 40%);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    color: color(nt-dark-grayish-cyan-lighter);
+    background-color: lighten(color(pr-strong-cyan), 40%);
+    cursor: default;
+  }
+}
+
+@media (min-width: 700px) {
+  .main {
+    background-position: top 10% center;
+    padding: 0;
+    padding-bottom: 2rem;
+    @media (min-height: 900px) {
+      background-position: top 10rem center;
+      padding: 0;
+    }
+  }
+
+  .card {
+    margin-top: 4rem;
+    padding: 3rem;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+
+    @media (max-height: 660px) {
+      margin-top: 10rem;
+    }
+  }
+
+  #custom-tip {
+    padding-left: 0;
+    &:focus {
+      padding-left: 1rem;
+    }
+  }
+  .people {
+    margin: 0;
+  }
+
+  .tips {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card__output {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    margin: -1rem;
+
+    .result {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

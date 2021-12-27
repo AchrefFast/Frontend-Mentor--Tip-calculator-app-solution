@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="./src/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+
+  <body>
+    <main class="main">
+      <div class="card">
+        <div class="card__input">
+          <div class="bill">
+            <label for="bill__input" class="label__text">Bill</label>
+            <input
+              id="bill__input"
+              type="number"
+              name="bill"
+              min="0"
+              step="0.01"
+              placeholder="0"
+            />
+          </div>
+
+          <p class="select-tip label__text">Select Tip %</p>
+
+          <div class="tips">
+            <label class="tip" for="five">
+              <input
+                class="tip__input"
+                type="radio"
+                name="tip"
+                data-percent="5"
+                id="five"
+                checked="false"
+              />
+              <span class="tip__text">5%</span>
+            </label>
+
+            <label class="tip" for="ten">
+              <input
+                class="tip__input"
+                type="radio"
+                name="tip"
+                data-percent="10"
+                id="ten"
+                checked="false"
+              />
+              <span class="tip__text">10%</span>
+            </label>
+
+            <label class="tip" for="fifteen">
+              <input
+                class="tip__input"
+                type="radio"
+                name="tip"
+                id="fifteen"
+                data-percent="15"
+                checked="false"
+              />
+              <span class="tip__text">15%</span>
+            </label>
+
+            <label class="tip" for="twenty-five">
+              <input
+                class="tip__input"
+                type="radio"
+                name="tip"
+                id="twenty-five"
+                data-percent="25"
+                checked="false"
+              />
+              <span class="tip__text">25%</span>
+            </label>
+
+            <label class="tip" for="fifty">
+              <input
+                class="tip__input"
+                type="radio"
+                name="tip"
+                data-percent="50"
+                id="fifty"
+                checked
+              />
+              <span class="tip__text">50%</span>
+            </label>
+
+            <label class="tip" for="custom">
+              <input
+                class="tip__input"
+                type="radio"
+                name="tip"
+                data-percent="custom"
+                id="custom"
+                checked
+              />
+
+              <input
+                class="custom"
+                type="number"
+                name="custom-tip"
+                id="custom-tip"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="Custom"
+              />
+            </label>
+          </div>
+
+          <div class="people">
+            <label class="number-people label__text" for="people__input"
+              ><span>Number of People</span
+              ><span id="people__error">Can't be zero</span></label
+            >
+            <input
+              type="number"
+              name="people"
+              id="people__input"
+              placeholder="0"
+              value="1"
+              min="1"
+              step="1"
+            />
+          </div>
+        </div>
+
+        <div class="card__output">
+          <div class="display">
+            <div class="result">
+              <div class="result__text">
+                <p class="result__text__name">Tip Amount</p>
+                <p class="result__text__per">/ person</p>
+              </div>
+
+              <div class="result__value">
+                <span>$<span id="result__tip">0.00</span></span>
+              </div>
+            </div>
+
+            <div class="result">
+              <div class="result__text">
+                <p class="result__text__name">Total</p>
+                <p class="result__text__per">/ person</p>
+              </div>
+
+              <div class="result__value">
+                <span>$<span id="result__total">0.00</span></span>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="reset" id="reset" disabled>Reset</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/AchrefFast">@AchrefFast</a>.
+  </div> -->
+  </body>
+</html>
